@@ -7,6 +7,14 @@
 
 A smart career guidance application that leverages AI to provide personalized career recommendations based on your skills, education, and interests. Built with Flask and powered by LLaMA 3.3.
 
+## 🛠️ Tech Stack
+
+- **Backend:** Flask (Python)
+- **AI/LLM:** LLaMA 3.3 (via Groq API)
+- **Orchestration:** LangChain
+- **Frontend:** HTML5,TailwindCSS
+- **Deployment:** Render / Gunicorn
+
 ## ✨ Features
 
 - 🎯 **Personalized Recommendations**: Get career suggestions tailored to your profile
@@ -15,36 +23,63 @@ A smart career guidance application that leverages AI to provide personalized ca
 - 📚 **Learning Roadmap**: Step-by-step guide to achieve your career goals
 - 🔍 **Role Details**: In-depth information about each recommended role
 
+
 ## 🚀 Deployment on Render
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/yourusername/career-guide)
 
-### Manual Deployment Steps:
-
-1. **Create a new Web Service** on Render
-2. **Connect your GitHub repository** or use the deploy button above
-3. Configure your deployment:
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `gunicorn app:app`
-   - **Environment Variables**:
-     ```
-     SECRET_KEY=your-secret-key
-     GROQ_API_KEY=your-groq-api-key
-     PYTHON_VERSION=3.8.0
-     ```
-4. Click **Deploy**
-
-## 🛠️ Local Development
+## 🛠️ Installation & Setup
 
 ### Prerequisites
 
-- Python 3.8+
+- Python 3.8 or higher
 - pip (Python package manager)
-- Groq API key (for LLaMA 3.3)
+- [Groq API key](https://console.groq.com/) (for LLaMA 3.3)
 
-### Installation
+### 🚀 Quick Start
 
 1. **Clone the repository**
    ```bash
    git clone [https://github.com/yourusername/career-guide.git](https://github.com/yourusername/career-guide.git)
    cd career-guide
+2. **Set up virtual environment**
+   ```bash
+   # Windows
+   python -m venv venv
+   .\venv\Scripts\activate
+   
+   # macOS/Linux
+   python3 -m venv venv
+   source venv/bin/activate
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+4. **Configure environment variabless**
+   ```bash
+   # Groq API Configuration
+   GROQ_API_KEY="your-groq-api-key-here"
+5. **Run the development server**
+   ```bash
+   python app.py
+6. **Access the application**
+   ```bash
+   http://localhost:5000
+
+## 📂 Project Structure
+
+```text
+career-guide/
+├── app.py                 # Main Flask application
+├── rag.py                 # AI recommendation engine
+├── requirements.txt       # Python dependencies
+├── Procfile               # Deployment commands for Render
+├── .gitignore             # Files to exclude from Git
+├── .env                   # Environment variables (Not on GitHub)
+├── static/                # Static files (CSS, JS, images)
+│   └── ...
+└── templates/             # HTML templates
+    ├── base.html          # Base template
+    ├── index.html         # Home page
+    ├── dashboard.html     # Recommendations
+    └── role_details.html  # Role information
+   
